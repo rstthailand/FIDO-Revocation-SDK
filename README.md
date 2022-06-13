@@ -1,6 +1,6 @@
-## การใช้งาน sdk 
+## การติดตั้ง sdk 
 
-นำ code ชุดนี้ไปไว้ใน dependencies
+นำ code ชุดนี้ไปไว้ในไฟล์ pubspec.yaml
 
 ```
 fido_revocation_sdk:
@@ -8,22 +8,38 @@ fido_revocation_sdk:
       url: https://github.com/rstthailand/FIDO-Revocation-SDK
 ```
 
-## Getting started
+ตัวอย่าง
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```
+dependencies:
+  flutter:
+    sdk: flutter
+  fido_revocation_sdk:
+    git:
+      url: https://github.com/rstthailand/FIDO-Revocation-SDK
+      
 ```
 
-## Additional information
+จากนั้นเรียกใช้คำสั่ง
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```
+flutter pub get
+```
+
+
+## การใชังาน
+
+นำเข้า package
+```
+import 'package:fido_revocation_sdk/fido_revocation_sdk.dart';
+```
+
+
+เรียกใช้คำสั่ง
+```
+ String? status = await getStatus(qrcodeToekn,endpointUrl);
+```
+
+ตัว sdk จะ return  ค่า status จาก server เป็น String เช่น new , used ,revoked เป็นต้น
+** หากเกิดข้อผิดพลาดจะ return status =  'error' 
+
